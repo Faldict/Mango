@@ -1,3 +1,4 @@
+This is forked from egrcc/mango and rewrite in Electron rather than NWjs
 
 # Mango 编辑器
 
