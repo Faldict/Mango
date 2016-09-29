@@ -2,8 +2,8 @@
   "name": "Mango",
   "version": "0.1.0",
   "description": "Markdown Editor",
-  "main": "index.html",
-  "author": "zhaolujun1994@gmail.com",
+  "main": "main.js",
+  "author": "legadoubledyan@gmail.com",
   "license": "GPL3",
   "single-instance": false,
   "window": {
