@@ -18,9 +18,51 @@
     </script>
 </head>
 <body>
-    <input style="display: none;" id="openFileDialog" type="file" />
-    <input style="display: none;" id="saveFileDialog" type="file" />
-    <textarea name="markdown" id="editor" class="md_editor"></textarea>
-    <div class="md_result"></div>
+    <!-- Modal -->
+    <div class="modal fade" id="saveModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Save file</h4>
+                </div>
+                <div class="modal-body">
+                    <input id="saveFileName" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onClick="saveFile();$('#saveModal').modal('hide');">Save file</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="openModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Open file</h4>
+                </div>
+                <div class="modal-body">
+                    <input id="openFileDialog" type="file" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onClick="chooseFile('#openFileDialog', function(filename){ loadFile(filename);});$('#openModal').modal();">Open file</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <textarea name="markdown" id="editor" class="md_editor"  onscroll="document.getElementById('preview').scrollTop = this.scrollTop;"></textarea>
+    <div id="preview" class="md_result"></div>
 </body>
 </html>

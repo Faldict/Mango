@@ -36,7 +36,21 @@ function chooseFile(name, callback) {
 	chooser.change(function(evt) {
 		callback(global.$(this).val());
 	});
-
-	chooser.trigger('click');
 }
 
+function saveFile() {
+	var filename = $('#saveFileName').val();
+	if (filename  == null) {
+		alert("input filename");
+	} else {
+		var fs = require("fs");
+		var textEditor = global.$('#editor');
+		fs.writeFile(filename, textEditor.val(), function(err) {
+			if(err) {
+				console.log(err);
+			} else {
+				console.log('The file was saved!');
+			}
+		});
+	}
+}

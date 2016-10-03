@@ -13,8 +13,10 @@ menu.append(new MenuItem({
 menu.append(new MenuItem({
 	label: 'save',
 	click: function() {
+		console.log("open modal");
+		$('#saveModal').modal();
 		chooseFile("#saveFileDialog", function(filename) {
-			console.log(filename);
+			console.log("save file");
 			var fs=require('fs');
 			var textEditor = global.$('#editor');
 			fs.writeFile(filename, textEditor.val(), function(err) {
@@ -30,8 +32,9 @@ menu.append(new MenuItem({
 menu.append(new MenuItem({
 	label: 'open',
 	click: function () {
+		$('#openModal').modal();
 		chooseFile("#openFileDialog", function(filename){
-			editor.loadFile(filename);
+			loadFile(filename);
 		});
 	}
 }))
