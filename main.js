@@ -16,6 +16,9 @@ function createWindow() {
     mainWindow = null;
   })
 
+  const contents = mainWindow.webContents;
+  console.log(contents);
+
 }
 
 app.on('ready', createWindow);
@@ -30,4 +33,5 @@ app.on('activate', () => {
     if (mainWindow === null) {
       createWindow();
     }
-})
+});
+
