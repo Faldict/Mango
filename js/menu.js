@@ -26,6 +26,12 @@ const template = [
   	  	}
   	  },
   	  {
+  	  	label: 'Preview',
+  	  	click() {
+  	  		preview();
+  	  	}
+  	  },
+  	  {
   	  	label: 'Quit',
   		accelerator: 'CmdOrCtrl+Q',
 	  	click () {
